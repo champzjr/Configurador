@@ -5,8 +5,6 @@ Nessa versão você pode estar escolhendo as portas na instalação o que possib
 
 ### 📌 Observações importantes:
 
-Instalação feita em "###";
-
 Recomendo criar uma snapshot da sua vps para evitar qualquer problema que possa vir acontecer;
 
 Antes de instalar, é de extrema importancia que você crie 1 registro no DNS, sendo ele “app" (não é obrigatório ser "app", você pode escolher outro nome). O registro é do tipo **A**, apontando para o **ip da sua VPS**, com **Proxy desativado** e **TTL Auto** (ou o valor que vier).
