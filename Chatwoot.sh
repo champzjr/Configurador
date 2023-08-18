@@ -29,9 +29,10 @@
 cd
 
 echo "Modificando env"
-#sudo mv .env .env-dev
 
 cd /home/chatwoot/chatwoot
+
+sudo mv .env-dev .env
 
 #Guardando postgres_password
 postgres_password=$(grep -oP '(?<=POSTGRES_PASSWORD=).+' /home/chatwoot/chatwoot/.env)
@@ -45,8 +46,11 @@ systemctl daemon-reload && systemctl restart chatwoot.target
 #momento que na documentação seria criando conta (não irei fazer agora)
 
 sudo -i -u postgres psql
+
 \c chatwoot_production
+
 update installation_configs set locked = false;
+
 \q
 
 
