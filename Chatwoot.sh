@@ -9,8 +9,6 @@ echo ""
 
 clear
 
-sudo su
-
 cd
 
 echo "Atualizando a VPS"
@@ -27,13 +25,3 @@ echo "iniciando instalação"
 echo -e "yes\n$dominiochat\n$emailchat\nyes\nyes" | ./install.sh --install
 
 #########################################################
-
-#cd /home/chatwoot/chatwoot
-#
-#sudo mv .env .env-dev
-#
-#cd
-#
-#cd
-#
-#cat > .env << EOL
