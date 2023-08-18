@@ -30,13 +30,10 @@ sudo apt install -y git && git clone https://github.com/oriondesign2015/AutoInst
 ```
 
 Ao executar esse código, ele pedirá para você fornecer as seguintes informações:
-  - A VER
+  - Dominio para acessar o Chatwoot (ex: app.dominio.com)
+  - Email para admin (ex: contato@dominio.com)
 
-Após preencher os campos corretamente ele já iniciará a instalação e configurações da Evolution.
-
->
-> No final fa instalação, pode ser que apareça uma mensagem pedindo para digitar "Y" e dar "ENTER" para finalizar a instalação da Evolution API.
->
+Após preencher os campos corretamente ele já iniciará a instalação e configurações do Chatwoot.
 
 <hr/>
 
