@@ -37,66 +37,12 @@ loading1() {
     clear
 }
 
-#
-# FIM DE LOADING
-#
-#########################################################
-#
-# CREDITOS
-#
 
 clear
-
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m ______             _____          _                _____                 _               \e[0m"
-echo -e "\e[32m(____  \           / ___ \        (_)              (____ \               (_)              \e[0m"
-echo -e "\e[32m ____)  ) _   _   | |   | |  ____  _   ___   ____   _   \ \   ____   ___  _   ____  ____  \e[0m"
-echo -e "\e[32m|  __  ( | | | |  | |   | | / ___)| | / _ \ |  _ \ | |   | | / _  ) /___)| | / _  ||  _ \ \e[0m"
-echo -e "\e[32m| |__)  )| |_| |  | |___| || |    | || |_| || | | || |__/ / ( (/ / |___ || |( ( | || | | |\e[0m"
-echo -e "\e[32m|______/  \__  |   \_____/ |_|    |_| \___/ |_| |_||_____/   \____)(___/ |_| \_|| ||_| |_|\e[0m"
-echo -e "\e[32m         (____/                                                             (_____|       \e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
 
 loading 2 $width
 
-#
-# FIM DE CREDITOS
-#
-#########################################################
-#
-# NOME DO PROGRAMA
-#
-
 clear
-
-echo -e "\e[97m\e[0m"
-echo -e "\e[97m\e[0m"
-echo -e "\e[97m _______                         _                             _              _               \e[0m"
-echo -e "\e[97m(_______)          _            | |                _          | |            | |              \e[0m"
-echo -e "\e[97m _______  _   _  _| |_   ___    | | ____    ___  _| |_  _____ | |  _____   __| |  ___    ____ \e[0m"
-echo -e "\e[97m|  ___  || | | |(_   _) / _ \   | ||  _ \  /___)(_   _)(____ || | (____ | / _  | / _ \  / ___)\e[0m"
-echo -e "\e[97m| |   | || |_| |  | |_ | |_| |  | || | | ||___ |  | |_ / ___ || | / ___ |( (_| || |_| || |    \e[0m"
-echo -e "\e[97m|_|   |_||____/    \__) \___/   |_||_| |_|(___/    \__)\_____| \_)\_____| \____| \___/ |_|    \e[0m"
-echo -e "\e[97m                                                                                              \e[0m"
-echo -e "\e[97m     _          \e[36m _______  _                                               \e[0m"
-echo -e "\e[97m    | |         \e[36m(_______)| |              _                           _   \e[0m"
-echo -e "\e[97m  __| |  ___    \e[36m _       | |__   _____  _| |_  _ _ _   ___    ___   _| |_ \e[0m"
-echo -e "\e[97m / _  | / _ \   \e[36m| |      |  _ \ (____ |(_   _)| | | | / _ \  / _ \ (_   _)\e[0m"
-echo -e "\e[97m( (_| || |_| |  \e[36m| |_____ | | | |/ ___ |  | |_ | | | || |_| || |_| |  | |_ \e[0m"
-echo -e "\e[97m \____| \___/   \e[36m \______)|_| |_|\_____|   \__) \___/  \___/  \___/    \__)\e[0m"
-echo -e "\e[97m                \e[36m                                                          \e[0m"
-echo -e "\e[97m\e[0m"
-echo -e "\e[97m\e[0m"
-
-#
-# FIM DE NOME DO PROGRAMA
-#
-#########################################################
-#
-# PERGUNTAS PARA VARIAVEIS
-#
 
 echo ""
 echo -e "\e[93m===============================================\e[0m"
@@ -107,9 +53,14 @@ echo -e "\e[93m===============================================\e[0m"
 echo ""
 read -p "Digite o dominio para acessar o Chatwoot (ex: app.dominio.com): " dominiochat
 echo ""
-read -p "Digite o nome da sua empresa (ex: OrionDesign): " empresachatwoot
-echo ""
+#read -p "Digite o nome da sua empresa (ex: OrionDesign): " empresachatwoot
+#echo ""
 read -p "Digite seu email de admin (ex: contato@dominio.com): " emailchat
+echo ""
+
+read -p "Você deseja configurar o e-mail de envio? (y/n): " confirma2
+if [ "$confirma2" == "y" ]; then
+read -p "Digite seu email de envio (ex: contato@dominio.com): " emailchatenvio
 echo ""
 read -p "Digite o Dominio do seu SMTP (ex: oriondesign.art.br | ex: gmail.com): " dominiosmtpchatwoot
 echo ""
@@ -129,15 +80,18 @@ echo ""
 #
 
 clear
-
-echo ""
-echo "Link do chatwoot: $dominiochat"
-echo "Nome da empresa: $empresachatwoot"
-echo "Email admin: $emailchat"
+echo "Email admin: $emailchatenvio"
 echo "Dominio SMTP: $dominiosmtpchatwoot"
 echo "Host SMTP: $smtpchatwoot"
 echo "Porta SMTP: $portachatwoot"
 echo "Senha do Email: $senhaemailchatwoot"
+elif [ "$confirma2" == "n" ]; then
+    echo "Prosseguindo a instalação."
+    exit 0
+echo ""
+echo "Link do chatwoot: $dominiochat"
+echo "Nome da empresa: $empresachatwoot"
+
 echo ""
 echo ""
 read -p "As informações estão certas? (y/n): " confirma1
@@ -153,17 +107,9 @@ if [ "$confirma1" == "y" ]; then
 
 clear
 
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m _                             _                     _                 \e[0m"
-echo -e "\e[32m| |                _          | |                   | |                \e[0m"
-echo -e "\e[32m| | ____    ___  _| |_  _____ | |  _____  ____    __| |  ___           \e[0m"
-echo -e "\e[32m| ||  _ \  /___)(_   _)(____ || | (____ ||  _ \  / _  | / _ \          \e[0m"
-echo -e "\e[32m| || | | ||___ |  | |_ / ___ || | / ___ || | | |( (_| || |_| | _  _  _ \e[0m"
-echo -e "\e[32m|_||_| |_|(___/    \__)\_____| \_)\_____||_| |_| \____| \___/ (_)(_)(_)\e[0m"
-echo -e "\e[32m                                                                       \e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
+
+echo -e "\e[32m|Instalando\e[0m"
+
 
 loading1 2 $width
 
@@ -183,13 +129,6 @@ apt upgrade -y
 
 sudo timedatectl set-timezone America/Sao_Paulo
 
-#
-# FIM DE INSTALANDO DEPENDENCIAS
-#
-#########################################################
-#
-# BAIXANDO CHATWOOT E EXECUTANDO
-#
 wget https://get.chatwoot.app/linux/install.sh
 
 chmod +x install.sh
@@ -210,16 +149,17 @@ cd
 
 cd /home/chatwoot/chatwoot
 
-postgres_password=$(grep -oP '(?<=POSTGRES_PASSWORD=).+' /home/chatwoot/chatwoot/.env)
+#postgres_password=$(grep -oP '(?<=POSTGRES_PASSWORD=).+' /home/chatwoot/chatwoot/.env)
 
 sed -i "s/# DEFAULT_LOCALE=en/DEFAULT_LOCALE=pt_BR/g" /home/chatwoot/chatwoot/.env
-sed -i "s/ENABLE_ACCOUNT_SIGNUP=false/ENABLE_ACCOUNT_SIGNUP=true/g" /home/chatwoot/chatwoot/.env
-sed -i "s/^MAILER_SENDER_EMAIL=.*/MAILER_SENDER_EMAIL='$empresachatwoot <$emailchat>'/" /home/chatwoot/chatwoot/.env
+#sed -i "s/ENABLE_ACCOUNT_SIGNUP=false/ENABLE_ACCOUNT_SIGNUP=true/g" /home/chatwoot/chatwoot/.env
+#sed -i "s/^MAILER_SENDER_EMAIL=.*/MAILER_SENDER_EMAIL='$empresachatwoot <$emailchatenvio>'/" /home/chatwoot/chatwoot/.env
 sed -i "s/^FRONTEND_URL=.*/FRONTEND_URL=https://$dominiochat/" /home/chatwoot/chatwoot/.env
+if [ "$confirma2" == "y" ]; then
 sed -i "s/^SMTP_DOMAIN=.*/SMTP_DOMAIN=$dominiosmtpchatwoot/" /home/chatwoot/chatwoot/.env
 sed -i "s/^SMTP_ADDRESS=.*/SMTP_ADDRESS=$smtpchatwoot/" /home/chatwoot/chatwoot/.env
 sed -i "s/^SMTP_PORT=.*/SMTP_PORT=$portachatwoot/" /home/chatwoot/chatwoot/.env
-sed -i "s/^SMTP_USERNAME=.*/SMTP_USERNAME=$emailchat/" /home/chatwoot/chatwoot/.env
+sed -i "s/^SMTP_USERNAME=.*/SMTP_USERNAME=$emailchatenvio/" /home/chatwoot/chatwoot/.env
 sed -i "s/^SMTPOR_PASSWD=.*/SMTP_PASSWORD=$senhaemailchatwoot/" /home/chatwoot/chatwoot/.env
 sed -i "s/^SMTP_AUTHENTICATION=.*/SMTP_AUTHENTICATION=login/" /home/chatwoot/chatwoot/.env
 sed -i "s/^FORCE_SSL=.*/FORCE_SSL=true/" /home/chatwoot/chatwoot/.env
@@ -247,31 +187,9 @@ sudo -u postgres psql -d chatwoot_production -c "UPDATE installation_configs SET
 cd
 cd
 cd
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m _                             _              _        \e[0m"
-echo -e "\e[32m| |                _          | |            | |       \e[0m"
-echo -e "\e[32m| | ____    ___  _| |_  _____ | |  _____   __| |  ___  \e[0m"
-echo -e "\e[32m| ||  _ \  /___)(_   _)(____ || | (____ | / _  | / _ \ \e[0m"
-echo -e "\e[32m| || | | ||___ |  | |_ / ___ || | / ___ |( (_| || |_| |\e[0m"
-echo -e "\e[32m|_||_| |_|(___/    \__)\_____| \_)\_____| \____| \___/ \e[0m"
-echo -e "\e[32m                                                       \e[0m"              
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
+
+echo -e "\e[32m                  Instalado                                    \e[0m"              
 echo -e "\e[32mAcesse seu Chatwoot: https://$dominiochat\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mSenha postgres: $postgres_password\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mInscreva-se no meu Canal: https://youtube.com/oriondesign_oficial\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32mSugestões ou duvidas: https://wa.me/+5511973052593\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
-echo -e "\e[32m\e[0m"
 echo -e "\e[32m\e[0m"
 
 #
